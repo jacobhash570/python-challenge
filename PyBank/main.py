@@ -3,7 +3,7 @@ import csv
 
 months = []
 
-count_months = 0
+month_count = 0
 
 os.chdir(os.path.dirname(__file__))
 
@@ -15,4 +15,9 @@ with open(budget_data_csv_path, newline="") as csvfile:
 
     csv_header = next(csvfile)
 
-    print(csv_header)
+    #print(csv_header)
+
+    for row in csv_reader:
+        month_count += 1
+
+        print (month_count)
