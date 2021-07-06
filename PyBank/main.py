@@ -1,14 +1,14 @@
 import os
 import csv
 
+months = []
+profit_loss_changes = []
+
 month_count = 0
 net_total = 0
 previous_month = 0
 current_month = 0
 change = 0
-
-months = []
-profit_loss_changes = []
 
 budget_data_csv_path = os.path.join("Resources", "budget_data.csv")
 
@@ -21,17 +21,15 @@ with open(budget_data_csv_path, newline="") as csvfile:
     #print(csv_header)
 
     for row in csv_reader:
-        print(row)
+        # print(row)
         month_count += 1
-
         #print (month_count)
 
-        current_total = int(row[1])
-        net_total += current_total
+        current_month = int(row[1])
+        net_total += current_month
+        #print(current_month)
 
-        #print(net_total)
-
-        if (months == 1):
+        if (month_count == 1):
             previous_month = current_month
             continue
 
@@ -45,3 +43,7 @@ with open(budget_data_csv_path, newline="") as csvfile:
             #print(profit_loss_changes)
 
             previous_month = current_month
+
+    sum_change = sum(profit_loss_changes)
+    average_change = round(sum_change/(month_count - 1))
+    print(average_change)
