@@ -1,7 +1,9 @@
 import os
 import csv
+from typing import Counter
 
-votes_candidates = []
+candidates = []
+votes = []
 
 election_data_csv_path = os.path.join("Resources", "election_data.csv")
 
@@ -13,10 +15,15 @@ with open(election_data_csv_path, newline="") as csvfile:
     #print(csv_header)
     
     for row in csv_reader:
-        votes_candidates.append(row[2])
+        #print(row)
+        candidates.append(row[2])
 
-    sorted_candiates = sorted(votes_candidates)
-    print(sorted_candiates)
+    sorted_candiates = sorted(candidates)
+    #print(sorted_candiates)
+
+    count = Counter(sorted_candiates)
+    votes.append(count.most_common())
+    print(votes)
         
 
 
