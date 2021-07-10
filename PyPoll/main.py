@@ -32,10 +32,38 @@ with open(election_data_csv_path, newline="") as csvfile:
         third = format((canditae[2][1])*100/(sum(count.values())))
         fourth = format((canditae[3][1])*100/(sum(count.values())))
 
-    print(first)
-    print(second)
-    print(third)
-    print(fourth)
+    # print(first)
+    # print(second)
+    # print(third)
+    # print(fourth)
+
+print("Election Results")
+print("----------------")
+print(f"Total Votes:  {sum(count.values())}")
+print("----------------")
+print(f"{votes[0][0][0]}: {first}% ({votes[0][0][1]})")
+print(f"{votes[0][1][0]}: {second}% ({votes[0][1][1]})")
+print(f"{votes[0][2][0]}: {third}% ({votes[0][2][1]})")
+print(f"{votes[0][3][0]}: {fourth}% ({votes[0][3][1]})")
+print("----------------")
+print(f"Winner:  {votes[0][0][0]}")
+print("----------------")
+
+
+output = os.path.join("analysis", "election_data.txt")
+with open(output, "w") as outfile:
+
+    outfile.write("Election Results\n")
+    outfile.write("----------------\n")
+    outfile.write(f"Total Votes:  {sum(count.values())}\n")
+    outfile.write("----------------\n")
+    outfile.write(f"{votes[0][0][0]}: {first}% ({votes[0][0][1]})\n")
+    outfile.write(f"{votes[0][1][0]}: {second}% ({votes[0][1][1]})\n")
+    outfile.write(f"{votes[0][2][0]}: {third}% ({votes[0][2][1]})\n")
+    outfile.write(f"{votes[0][3][0]}: {fourth}% ({votes[0][3][1]})\n")
+    outfile.write("----------------\n")
+    outfile.write(f"Winner:  {votes[0][0][0]}\n")
+    outfile.write("----------------\n")   
         
 
 
