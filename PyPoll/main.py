@@ -23,7 +23,19 @@ with open(election_data_csv_path, newline="") as csvfile:
 
     count = Counter(sorted_candiates)
     votes.append(count.most_common())
-    print(votes)
+    #print(votes)
+
+    for canditae in votes:
+       
+        first = format((canditae[0][1])*100/(sum(count.values())))
+        second = format((canditae[1][1])*100/(sum(count.values())))
+        third = format((canditae[2][1])*100/(sum(count.values())))
+        fourth = format((canditae[3][1])*100/(sum(count.values())))
+
+    print(first)
+    print(second)
+    print(third)
+    print(fourth)
         
 
 
